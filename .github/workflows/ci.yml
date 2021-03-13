@@ -28,5 +28,5 @@ jobs:
           restore-keys: yarn-
       - name: Dependency install and integrety check
         run: yarn install --frozen-lockfile
-      - run: yarn test --ci
+      - run: yarn test --ci --passWithNoTests
       - run: yarn build
