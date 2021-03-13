@@ -17,16 +17,5 @@
     "jsx": "react-jsx",
     "strictNullChecks": true
   },
-  "include": ["src"],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": ["prettier --write"]
-  },
-  "resolutions": {
-    "styled-components": "^5"
-  }
+  "include": ["src"]
 }
