@@ -1,21 +1,10 @@
 import { Col, Divider, Row } from "antd";
 import React from "react";
+import { SAMPLE_DATA, SAMPLE_TAGS } from "../../../common/constants/mock.data";
 import { LinkBar } from "../../LinkBar";
 import SampleData from "../../SampleData";
 import SearchBar from "../../SearchBar";
 import Tags from "../../Tags";
-
-const SAMPLE_TAGS = ["_id", "createAt", "gender", "updateAt", "activate"];
-const SAMPLE_DATA = `
-[
-    {
-        "_id": "12hd34a5", 
-        "createAt: ${Date.now().toString()}, 
-        "gender": "M", 
-        "activate": true
-    }
-]
-`;
 
 const GetLayout: React.FC = () => (
   <Row justify="center">
