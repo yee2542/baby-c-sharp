@@ -1,9 +1,15 @@
 import { Col, Divider, Row } from "antd";
 import React from "react";
 import { LinkBar } from "../../LinkBar";
+import SampleData from "../../SampleData";
 import Tags from "../../Tags";
 
-const SAMPLE_TAGS = ["_id", "createAt", "gender", "updateAt"];
+const SAMPLE_TAGS = ["_id", "createAt", "gender", "updateAt", "activate"];
+const SAMPLE_DATA = `
+[
+    {"_id": "12hd34a5", "createAt: ${Date.now().toString()}, "gender": "M", "activate": true}
+]
+`;
 
 const SearchLayout = () => (
   <Row justify="center">
@@ -25,6 +31,7 @@ const MainLayout: React.FC = (props) => {
         </Col>
         <Col span={12}>
           <Divider orientation="left">Sample Data</Divider>
+          <SampleData language="json" data={SAMPLE_DATA} />
         </Col>
       </Row>
       {props.children}
