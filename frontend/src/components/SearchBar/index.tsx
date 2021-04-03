@@ -1,5 +1,6 @@
 import { Input, Select } from "antd";
 import React, { useState } from "react";
+import { SAMPLE_TAGS } from "../../common/constants/mock.data";
 
 const { Option } = Select;
 const { Search } = Input;
@@ -16,13 +17,14 @@ const SearchBar: React.FC = () => {
 
   return (
     <Input.Group>
-      <Select defaultValue="Zhejiang" style={{ width: "30%" }}>
-        <Option value="Zhejiang">Zhejiang</Option>
-        <Option value="Jiangsu">Jiangsu</Option>
+      <Select defaultValue={SAMPLE_TAGS[0]} style={{ width: "30%" }}>
+        {SAMPLE_TAGS.map((el) => (
+          <Option value={el}>{el}</Option>
+        ))}
       </Select>
       <Search
         style={{ width: "70%" }}
-        placeholder="https://"
+        placeholder=""
         allowClear
         enterButton="Search"
         value={search}
