@@ -42,7 +42,6 @@ const MainLayout: React.FC = (props) => {
       <GetLayout />
       <MetaLayout />
       <DataLayout />
-
       {props.children}
     </div>
   );
