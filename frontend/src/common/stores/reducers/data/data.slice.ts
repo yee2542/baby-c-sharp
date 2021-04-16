@@ -1,13 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { dataInit } from "./data.init";
-import { ErrorDataState, FetchingUrlState, LoadDataState } from "./data.type";
+import {
+  ErrorDataState,
+  FetchingSearchState,
+  FetchingUrlState,
+  LoadDataState,
+  LoadSearchState,
+} from "./data.type";
 
 export const DATA_REDUCER = "DATA_REDUCER";
 const dataSlice = createSlice({
   name: DATA_REDUCER,
   initialState: dataInit,
   reducers: {
-    // data state
     init() {
       return dataInit;
     },
@@ -23,6 +28,16 @@ const dataSlice = createSlice({
       state.data = payload.data;
       state.keys = payload.keys;
       state.sample = payload.sample;
+    },
+    search(state, { payload: search }: PayloadAction<FetchingSearchState>) {
+      state.loading.search = true;
+      state.loading.data = true;
+      state.search = search;
+    },
+    loadSearch(state, { payload }: PayloadAction<LoadSearchState>) {
+      state.loading.search = false;
+      state.loading.data = false;
+      state.data = payload.data;
     },
     dataError(state, { payload }: PayloadAction<ErrorDataState>) {
       state.loading.data = false;

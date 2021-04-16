@@ -11,4 +11,5 @@ export const dataInit: DataState = {
   },
   error: false,
   url: "",
+  search: "",
 };
