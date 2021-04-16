@@ -1,6 +1,11 @@
 import { Col, Divider, Row } from "antd";
 import React from "react";
-import { SAMPLE_DATA, SAMPLE_TAGS } from "../../../common/constants/mock.data";
+import {
+  SAMPLE_DATA,
+  SAMPLE_ELEMENT,
+  SAMPLE_TAGS,
+} from "../../../common/constants/mock.data";
+import DataElement from "../../DataElement";
 import { LinkBar } from "../../LinkBar";
 import SampleData from "../../SampleData";
 import SearchBar from "../../SearchBar";
@@ -28,11 +33,19 @@ const MetaLayout: React.FC = () => (
 );
 
 const DataLayout: React.FC = () => (
-  <Row>
+  <Row gutter={[16, 16]}>
     <Divider orientation="left">Results</Divider>
     <Col span={24}>
       <SearchBar />
     </Col>
+
+    {Array(10)
+      .fill(0)
+      .map(() => (
+        <Col xs={24} sm={8} md={6} lg={4}>
+          <DataElement data={SAMPLE_ELEMENT} />
+        </Col>
+      ))}
   </Row>
 );
 
