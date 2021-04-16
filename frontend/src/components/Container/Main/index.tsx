@@ -44,7 +44,7 @@ const GetContainer: React.FC = () => {
 };
 
 const MetaContainer: React.FC = () => {
-  const loading = useSelector((s: Store) => s.dataReducer.loading.data);
+  const loading = useSelector((s: Store) => s.dataReducer.loading.url);
   const tags = useSelector((s: Store) => s.dataReducer.keys);
   const sample = useSelector((s: Store) => s.dataReducer.sample);
   return (
@@ -69,21 +69,40 @@ const MetaContainer: React.FC = () => {
 };
 
 const DataContainer: React.FC = () => {
-  const loading = useSelector((s: Store) => s.dataReducer.loading.data);
+  const dispatch = useDispatch();
+
+  const loadingData = useSelector((s: Store) => s.dataReducer.loading.data);
+  const loadingSearch = useSelector((s: Store) => s.dataReducer.loading.search);
   const dataElement = useSelector((s: Store) => s.dataReducer.data);
+  const items = useSelector((s: Store) => s.dataReducer.keys);
+
+  const onSearch: (value: string) => void = (value) => {
+    dispatch(dataActions.search(value));
+    const mockElement = Array(10).fill(SAMPLE_ELEMENT);
+    setTimeout(
+      () =>
+        dispatch(
+          dataActions.loadSearch({
+            data: mockElement,
+          })
+        ),
+      2000
+    );
+  };
+
   return (
     <Row gutter={[16, 16]}>
       <Divider orientation="left">Results</Divider>
       <Col span={24}>
-        <SearchBar />
+        <SearchBar loading={loadingSearch} onSearch={onSearch} items={items} />
       </Col>
 
-      {loading && <Loading />}
+      {(loadingData || loadingSearch) && <Loading />}
 
-      {!loading &&
-        dataElement.map(() => (
+      {(!loadingData || !loadingSearch) &&
+        dataElement.map((el) => (
           <Col key={Math.random().toString()} xs={24} sm={8} md={6} lg={4}>
-            <DataElement data={SAMPLE_ELEMENT} />
+            <DataElement data={el} />
           </Col>
         ))}
     </Row>
