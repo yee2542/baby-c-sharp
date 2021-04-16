@@ -15,3 +15,13 @@ export const SAMPLE_DATA = `
     }
 ]
 `;
+
+export const SAMPLE_ELEMENT = {
+  hello: true,
+  number: 1234,
+  hi: "konijiwa",
+  lang: {
+    default: true,
+    other: "en",
+  },
+};
