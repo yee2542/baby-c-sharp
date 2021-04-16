@@ -1,8 +1,8 @@
 import React from "react";
-import MainLayout from "../components/Layouts/Main";
+import MainContainer from "../components/Container/Main";
 
 const IndexPage: React.FC = () => {
-  return <MainLayout>index</MainLayout>;
+  return <MainContainer>index</MainContainer>;
 };
 
 export default IndexPage;

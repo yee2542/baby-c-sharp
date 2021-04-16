@@ -11,7 +11,7 @@ import SampleData from "../../SampleData";
 import SearchBar from "../../SearchBar";
 import Tags from "../../Tags";
 
-const GetLayout: React.FC = () => (
+const GetContainer: React.FC = () => (
   <Row justify="center">
     <Col span={24}>
       <LinkBar />
@@ -19,7 +19,7 @@ const GetLayout: React.FC = () => (
   </Row>
 );
 
-const MetaLayout: React.FC = () => (
+const MetaContainer: React.FC = () => (
   <Row justify="space-between">
     <Col span={12}>
       <Divider orientation="left">Keys</Divider>
@@ -32,7 +32,7 @@ const MetaLayout: React.FC = () => (
   </Row>
 );
 
-const DataLayout: React.FC = () => (
+const DataContainer: React.FC = () => (
   <Row gutter={[16, 16]}>
     <Divider orientation="left">Results</Divider>
     <Col span={24}>
@@ -49,15 +49,15 @@ const DataLayout: React.FC = () => (
   </Row>
 );
 
-const MainLayout: React.FC = (props) => {
+const MainContainer: React.FC = (props) => {
   return (
     <div style={{ padding: 14 }}>
-      <GetLayout />
-      <MetaLayout />
-      <DataLayout />
+      <GetContainer />
+      <MetaContainer />
+      <DataContainer />
       {props.children}
     </div>
   );
 };
 
-export default MainLayout;
+export default MainContainer;
