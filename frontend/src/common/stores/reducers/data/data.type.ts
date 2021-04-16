@@ -5,3 +5,7 @@ export type DataState = {
   loading: boolean;
   error: string | false;
 };
+
+type MetaState = "loading" | "error";
+export type LoadDataState = Omit<DataState, MetaState>;
+export type FetchDataState = Pick<DataState, MetaState>;

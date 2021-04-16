@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { dataInit } from "./data.init";
+import { FetchDataState, LoadDataState } from "./data.type";
 
 export const DATA_REDUCER = "DATA_REDUCER";
 const dataSlice = createSlice({
@@ -8,6 +9,20 @@ const dataSlice = createSlice({
   reducers: {
     init() {
       return dataInit;
+    },
+    load(state, { payload }: PayloadAction<LoadDataState>) {
+      state.error = false;
+      state.loading = false;
+      state.data = payload.data;
+      state.keys = payload.keys;
+      state.sample = payload.sample;
+    },
+    fetching(state) {
+      state.loading = true;
+    },
+    error(state, { payload }: PayloadAction<FetchDataState>) {
+      state.loading = false;
+      state.error = payload.error;
     },
   },
 });
