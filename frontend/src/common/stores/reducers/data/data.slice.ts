@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { dataInit } from "./data.init";
-import { FetchDataState, LoadDataState } from "./data.type";
+import { ErrorDataState, LoadDataState } from "./data.type";
 
 export const DATA_REDUCER = "DATA_REDUCER";
 const dataSlice = createSlice({
@@ -20,7 +20,7 @@ const dataSlice = createSlice({
     fetching(state) {
       state.loading = true;
     },
-    error(state, { payload }: PayloadAction<FetchDataState>) {
+    error(state, { payload }: PayloadAction<ErrorDataState>) {
       state.loading = false;
       state.error = payload.error;
     },
