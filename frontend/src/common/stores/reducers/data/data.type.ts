@@ -8,4 +8,4 @@ export type DataState = {
 
 type MetaState = "loading" | "error";
 export type LoadDataState = Omit<DataState, MetaState>;
-export type FetchDataState = Pick<DataState, MetaState>;
+export type ErrorDataState = Pick<DataState, MetaState>;
