@@ -4,6 +4,11 @@ export const dataInit: DataState = {
   keys: [],
   sample: {},
   data: [],
-  loading: false,
+  loading: {
+    search: false,
+    data: false,
+    url: false,
+  },
   error: false,
+  url: "",
 };

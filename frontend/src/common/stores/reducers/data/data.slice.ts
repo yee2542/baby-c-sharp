@@ -1,27 +1,39 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { dataInit } from "./data.init";
-import { ErrorDataState, LoadDataState } from "./data.type";
+import { ErrorDataState, FetchingUrlState, LoadDataState } from "./data.type";
 
 export const DATA_REDUCER = "DATA_REDUCER";
 const dataSlice = createSlice({
   name: DATA_REDUCER,
   initialState: dataInit,
   reducers: {
+    // data state
     init() {
       return dataInit;
     },
-    load(state, { payload }: PayloadAction<LoadDataState>) {
+    fetchURL(state, { payload: url }: PayloadAction<FetchingUrlState>) {
+      state.loading.data = true;
+      state.loading.url = true;
+      state.url = url;
+    },
+    loadData(state, { payload }: PayloadAction<LoadDataState>) {
       state.error = false;
-      state.loading = false;
+      state.loading.data = false;
+      state.loading.url = false;
       state.data = payload.data;
       state.keys = payload.keys;
       state.sample = payload.sample;
     },
-    fetching(state) {
-      state.loading = true;
+    dataError(state, { payload }: PayloadAction<ErrorDataState>) {
+      state.loading.data = false;
+      state.error = payload.error;
     },
-    error(state, { payload }: PayloadAction<ErrorDataState>) {
-      state.loading = false;
+    getError(state, { payload }: PayloadAction<ErrorDataState>) {
+      state.loading.url = false;
+      state.error = payload.error;
+    },
+    searchError(state, { payload }: PayloadAction<ErrorDataState>) {
+      state.loading.search = false;
       state.error = payload.error;
     },
   },
