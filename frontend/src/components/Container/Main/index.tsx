@@ -15,10 +15,29 @@ import SearchBar from "../../SearchBar";
 import Tags from "../../Tags";
 
 const GetContainer: React.FC = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector((s: Store) => s.dataReducer.loading.url);
+
+  const onSearch: (value: string) => void = (value) => {
+    dispatch(dataActions.fetchURL(value));
+    const mockElement = Array(10).fill(SAMPLE_ELEMENT);
+    setTimeout(
+      () =>
+        dispatch(
+          dataActions.loadData({
+            data: mockElement,
+            sample: SAMPLE_ELEMENT,
+            keys: SAMPLE_TAGS,
+            search: value,
+          })
+        ),
+      2000
+    );
+  };
   return (
     <Row justify="center">
       <Col span={24}>
-        <LinkBar />
+        <LinkBar loading={loading} onSearch={onSearch} />
       </Col>
     </Row>
   );
@@ -30,7 +49,6 @@ const MetaContainer: React.FC = () => {
   const sample = useSelector((s: Store) => s.dataReducer.sample);
   return (
     <Row justify="space-between">
-      {loading && <Loading />}
       {!loading && (
         <>
           <Col span={12}>
@@ -78,19 +96,6 @@ const MainContainer: React.FC = (props) => {
   // first mount
   useEffect(() => {
     dispatch(dataActions.init());
-    dispatch(dataActions.fetchURL("http://google.co.th"));
-    const mockElement = Array(10).fill(SAMPLE_ELEMENT);
-    setTimeout(
-      () =>
-        dispatch(
-          dataActions.loadData({
-            data: mockElement,
-            sample: SAMPLE_ELEMENT,
-            keys: SAMPLE_TAGS,
-          })
-        ),
-      1500
-    );
   }, [dispatch]);
 
   return (
