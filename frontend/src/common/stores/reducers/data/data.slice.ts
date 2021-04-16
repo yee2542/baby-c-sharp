@@ -20,6 +20,7 @@ const dataSlice = createSlice({
       state.loading.data = true;
       state.loading.url = true;
       state.url = url;
+      state.data = [];
     },
     loadData(state, { payload }: PayloadAction<LoadDataState>) {
       state.error = false;
