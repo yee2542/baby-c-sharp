@@ -42,7 +42,7 @@ const DataContainer: React.FC = () => (
     {Array(10)
       .fill(0)
       .map(() => (
-        <Col xs={24} sm={8} md={6} lg={4}>
+        <Col key={Math.random().toString()} xs={24} sm={8} md={6} lg={4}>
           <DataElement data={SAMPLE_ELEMENT} />
         </Col>
       ))}
