@@ -4,3 +4,4 @@ const reducer = combineReducers({});
 export const store = configureStore({
   reducer,
 });
+export type Store = ReturnType<typeof reducer>;
