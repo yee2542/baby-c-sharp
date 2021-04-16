@@ -25,7 +25,7 @@ const GetContainer: React.FC = () => {
 };
 
 const MetaContainer: React.FC = () => {
-  const loading = useSelector((s: Store) => s.dataReducer.loading);
+  const loading = useSelector((s: Store) => s.dataReducer.loading.data);
   const tags = useSelector((s: Store) => s.dataReducer.keys);
   const sample = useSelector((s: Store) => s.dataReducer.sample);
   return (
@@ -51,7 +51,7 @@ const MetaContainer: React.FC = () => {
 };
 
 const DataContainer: React.FC = () => {
-  const loading = useSelector((s: Store) => s.dataReducer.loading);
+  const loading = useSelector((s: Store) => s.dataReducer.loading.data);
   const dataElement = useSelector((s: Store) => s.dataReducer.data);
   return (
     <Row gutter={[16, 16]}>
@@ -78,12 +78,12 @@ const MainContainer: React.FC = (props) => {
   // first mount
   useEffect(() => {
     dispatch(dataActions.init());
-    dispatch(dataActions.fetching());
+    dispatch(dataActions.fetchURL("http://google.co.th"));
     const mockElement = Array(10).fill(SAMPLE_ELEMENT);
     setTimeout(
       () =>
         dispatch(
-          dataActions.load({
+          dataActions.loadData({
             data: mockElement,
             sample: SAMPLE_ELEMENT,
             keys: SAMPLE_TAGS,
