@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/baby-c-sharp/static/css/main.5a3a4dd4.chunk.css",
+    "main.js": "/baby-c-sharp/static/js/main.dd9e084a.chunk.js",
+    "main.js.map": "/baby-c-sharp/static/js/main.dd9e084a.chunk.js.map",
+    "runtime-main.js": "/baby-c-sharp/static/js/runtime-main.e3448212.js",
+    "runtime-main.js.map": "/baby-c-sharp/static/js/runtime-main.e3448212.js.map",
+    "static/css/2.015dc0ab.chunk.css": "/baby-c-sharp/static/css/2.015dc0ab.chunk.css",
+    "static/js/2.02ad035b.chunk.js": "/baby-c-sharp/static/js/2.02ad035b.chunk.js",
+    "static/js/2.02ad035b.chunk.js.map": "/baby-c-sharp/static/js/2.02ad035b.chunk.js.map",
+    "static/js/3.175f5def.chunk.js": "/baby-c-sharp/static/js/3.175f5def.chunk.js",
+    "static/js/3.175f5def.chunk.js.map": "/baby-c-sharp/static/js/3.175f5def.chunk.js.map",
+    "index.html": "/baby-c-sharp/index.html",
+    "static/css/2.015dc0ab.chunk.css.map": "/baby-c-sharp/static/css/2.015dc0ab.chunk.css.map",
+    "static/css/main.5a3a4dd4.chunk.css.map": "/baby-c-sharp/static/css/main.5a3a4dd4.chunk.css.map",
+    "static/js/2.02ad035b.chunk.js.LICENSE.txt": "/baby-c-sharp/static/js/2.02ad035b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e3448212.js",
+    "static/css/2.015dc0ab.chunk.css",
+    "static/js/2.02ad035b.chunk.js",
+    "static/css/main.5a3a4dd4.chunk.css",
+    "static/js/main.dd9e084a.chunk.js"
+  ]
+}
