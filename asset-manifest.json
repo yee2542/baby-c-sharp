@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/baby-c-sharp/static/css/main.5a3a4dd4.chunk.css",
-    "main.js": "/baby-c-sharp/static/js/main.dd9e084a.chunk.js",
-    "main.js.map": "/baby-c-sharp/static/js/main.dd9e084a.chunk.js.map",
+    "main.js": "/baby-c-sharp/static/js/main.5cbb4d1c.chunk.js",
+    "main.js.map": "/baby-c-sharp/static/js/main.5cbb4d1c.chunk.js.map",
     "runtime-main.js": "/baby-c-sharp/static/js/runtime-main.e3448212.js",
     "runtime-main.js.map": "/baby-c-sharp/static/js/runtime-main.e3448212.js.map",
     "static/css/2.015dc0ab.chunk.css": "/baby-c-sharp/static/css/2.015dc0ab.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.015dc0ab.chunk.css",
     "static/js/2.02ad035b.chunk.js",
     "static/css/main.5a3a4dd4.chunk.css",
-    "static/js/main.dd9e084a.chunk.js"
+    "static/js/main.5cbb4d1c.chunk.js"
   ]
 }
